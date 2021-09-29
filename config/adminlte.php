@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'SiAgen | Login',
+    'title' => 'AgenLantas | Login',
     'title_prefix' => '',
     'title_postfix' => '',
 

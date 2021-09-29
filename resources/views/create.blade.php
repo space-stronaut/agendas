@@ -10,25 +10,32 @@
                 </div>
                 </div>
                 <div class="form-group">
-                    <label for="">NIP</label>
-                <input type="tel" maxlength="21"  id="txtnumber" name="nip" pattern="[0-9-]{21}" class="form-control" placeholder="NIP" value="{{ old('nip') }}" required>
+                    <label for="">nrp</label>
+                <input type="tel" name="nrp" class="form-control" placeholder="nrp" value="{{ old('nrp') }}" required>
                   <div class="invalid-feedback">
-                    NIP Wajib Diisi Minimal Sebanyak 21 & Berisikan Angka
+                    nrp Wajib Diisi Minimal Sebanyak 21 & Berisikan Angka
                 </div>
                 </div>
                 <div class="form-group">
-                    <label for="">Bidang</label>
+                    <label for="">Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required>
+                  <div class="invalid-feedback">
+                    nrp Wajib Diisi Minimal Sebanyak 21 & Berisikan Angka
+                </div>
+                </div>
+                <div class="form-group">
+                    <label for="">pangkat</label>
                     {{-- <input type="text" name="Nama" class="form-control" placeholder="Nama Lengkap" value="{{ old('Nama') }}" id="exampleInputPassword1"> --}}
-                    <select name="bidang" class="form-control" id="" required>
-                        <option disabled selected value>Pilih Bidang</option>
-                        <option value="Sekretariat" {{ old('bidang') ==  "Sekretariat"  ? 'selected' : '' }}>Sekretariat</option>
-                        <option value="Pengelolaan Barang Milik Daerah" {{ old('bidang') ==  "Pengelolaan Barang Milik Daerah"  ? 'selected' : '' }}>Pengelolaan Barang Milik Daerah</option>  
-                        <option value="Perbendaharaan" {{ old('bidang') ==  "Perbendaharaan"  ? 'selected' : '' }}>Perbendaharaan</option>  
-                        <option value="Akuntansi dan pelaporan" {{ old('bidang') ==  "Akuntansi dan pelaporan"  ? 'selected' : '' }}>Akuntansi dan pelaporan</option>  
-                        <option value="Anggaran" {{ old('bidang') ==  "Anggaran"  ? 'selected' : '' }}>Anggaran</option>  
+                    <select name="pangkat" class="form-control" id="" required>
+                        <option disabled selected value>Pilih pangkat</option>
+                        <option value="Sekretariat" {{ old('pangkat') ==  "Sekretariat"  ? 'selected' : '' }}>Sekretariat</option>
+                        <option value="Pengelolaan Barang Milik Daerah" {{ old('pangkat') ==  "Pengelolaan Barang Milik Daerah"  ? 'selected' : '' }}>Pengelolaan Barang Milik Daerah</option>  
+                        <option value="Perbendaharaan" {{ old('pangkat') ==  "Perbendaharaan"  ? 'selected' : '' }}>Perbendaharaan</option>  
+                        <option value="Akuntansi dan pelaporan" {{ old('pangkat') ==  "Akuntansi dan pelaporan"  ? 'selected' : '' }}>Akuntansi dan pelaporan</option>  
+                        <option value="Anggaran" {{ old('pangkat') ==  "Anggaran"  ? 'selected' : '' }}>Anggaran</option>  
                     </select>
                     <div class="invalid-feedback">
-                        Bidang Wajib Diisi
+                        pangkat Wajib Diisi
                     </div>
                   </div>
                 <div class="form-group">
@@ -37,27 +44,6 @@
                   <div class="invalid-feedback">
                     Jabatan Wajib Diisi
                 </div>
-                </div>
-                <div class="form-group">
-                    <label for="golongan"> 
-                        Golongan   
-                    </label>
-                    <select name="golongan" class="form-control" id="" required>
-                        <option value="" disabled selected>Pilih Golongan</option>
-                        <option value="II A">II A</option>
-                        <option value="II B">II B</option>
-                        <option value="II C">II C</option>
-                        <option value="III A">III A</option>
-                        <option value="III B">III B</option>
-                        <option value="III C">III C</option>
-                        <option value="III D">III D</option>
-                        <option value="IV A">IV A</option>
-                        <option value="IV B">IV B</option>
-                        <option value="IV C">IV C</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Golongan Wajib Diisi
-                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="{{ url('/pegawai') }}" class="btn btn-danger">Batal</a>

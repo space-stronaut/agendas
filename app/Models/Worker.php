@@ -11,7 +11,7 @@ class Worker extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama', 'bidang', 'nip', 'jabatan', 'golongan'];
+    protected $fillable = ['nama', 'bidang', 'nip', 'jabatan', 'golongan', 'pangkat', 'nrp', 'email'];
     
     public $timestamps = false;
     public function agendas(){

@@ -8,6 +8,8 @@ use \App\Models\Worker;
 use App\Exports\AgendaExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Alert;
+use App\Mail\WorkerMail;
+use Illuminate\Support\Facades\Mail;
 use PDF;
 
 class AgendaController extends Controller
@@ -66,6 +68,12 @@ class AgendaController extends Controller
             'start' => $request->start,
             'end' => $request->end
         ]);
+
+        $workers = Worker::where('id', $request->workers)->get();
+        
+        foreach ($workers as $worker) {
+            Mail::to($worker->email)->send(new WorkerMail());
+        }
 
 
         $agendas->workers()->sync(request('workers'));

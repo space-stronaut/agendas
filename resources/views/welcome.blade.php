@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>SiAgen | Sistem Informasi Agenda</title>
+        <title>AgenLantas</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
         </div>
         <!-- Navigation-->
         <nav class="px-5 navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img style="width: 100px;height: 50px;" src="{{ asset('img/LogoSiAgen.png') }}" alt="" /></a>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img style="width: 100px;height: 50px;" src="{{ asset('img/WhatsApp Image 2021-08-16 at 1.34.49 PM.jpeg') }}" alt="" /></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -71,16 +71,15 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Fitur</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Agenda</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Pegawai</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
                         <li class="nav-item"><a class="btn btn-primary navbar-button" href="{{ url('/login') }}">Masuk</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead" style="background-image: url({{ asset('img/jumbotron1.jpg') }})" data-aos="fade-up">
+        <header class="masthead" style="background-image: url({{ asset('img/pic1.jpeg') }})" data-aos="fade-up">
             <div class="container">
-                <div class="masthead-subheading" data-aos="fade-up">Selamat Datang Di SiAgen </div>
+                <div class="masthead-subheading" data-aos="fade-up">Selamat Datang Di AgenLantas </div>
                 <div class="masthead-heading text-uppercase" data-aos="fade-up">Atur Agenda Kegiatan Hari Ini</div>
                 <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Mulai</a>
             </div>
@@ -117,7 +116,7 @@
             <div class="container">
                 <div class="text-center" data-aos="fade-up">
                     <h2 class="section-heading text-uppercase">Agenda Hari Ini</h2>
-                    <h3 class="section-subheading text-muted">Agenda Kegiatan Pegawai Badan Keuangan Anggaran Daerah Hari Ini.</h3>
+                    <h3 class="section-subheading text-muted">Agenda Kegiatan Pegawai Satlantas Polres Asahan.</h3>
                     <a href="{{ url('/data-agenda') }}" class="nav-link">Lihat Selengkapnya</a>
                 </div>
                 <div class="row justify-content-between mt-5" data-aos="fade-up">
@@ -151,7 +150,7 @@
             <div class="container">
                 <div class="text-center" data-aos="fade-up">
                     <h2 class="section-heading text-uppercase">Data Pegawai</h2>
-                    <h3 class="section-subheading text-muted">Data Pegawai Badan Keuangan Anggaran Daerah.</h3>
+                    <h3 class="section-subheading text-muted">Data Pegawai Satlantas Polres Asahan.</h3>
                     <a href="{{ url('/data-pegawai') }}" class="nav-link">Lihat Selengkapnya</a>
                 </div>
                 <div style="overflow-x: auto" data-aos="fade-up">
@@ -160,10 +159,9 @@
                           <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Nama</th>
-                            <th scope="col" >NIP</th>
-                            <th scope="col" >Bidang</th>
+                            <th scope="col" >NRP</th>
                             <th scope="col">Jabatan</th>
-                            <th scope="col">Golongan</th>
+                            <th scope="col">Pangkat</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -171,49 +169,13 @@
                           <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $worker->nama }}</td>
-                            <td>{{ $worker->nip }}</td>
-                            <td><b>{{ $worker->bidang }}</b></td>
+                            <td>{{ $worker->nrp }}</td>
                             <td>{{ $worker->jabatan }}</td>
-                            <td>{{ $worker->golongan }}</td>
+                            <td>{{ $worker->pangkat }}</td>
                           </tr>
                           @endforeach
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </section>
-        <!-- Team-->
-        <section class="page-section bg-light" id="team" >
-            <div class="container">
-                <div class="text-center" data-aos="fade-up">
-                    <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Rekayasa Perangkat Lunak SMKN 1 SUBANG</h3>
-                </div>
-                <div class="row" data-aos="fade-up">
-                    <div class="col-lg-4" data-aos-duration="1400">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="" />
-                            <h4>Ikmal Dean Anugrah</h4>
-                            <p class="text-muted">Frontend</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4" data-aos-duration="1600">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="FotoRaldy.JPG" alt="" />
-                            <h4>Raldy Lutfiana</h4>
-                            <p class="text-muted">UI Design / Frontend</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4" data-aos-duration="1800">
-                        <div class="team-member">
-                            <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="" />
-                            <h4>Ronald Abel Hermansyah</h4>
-                            <p class="text-muted">Backend Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
                 </div>
             </div>
         </section>
@@ -225,7 +187,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Hak Cipta Oleh © <br> SiAgen | Sistem Informasi Agenda</div>
+                    <div class="col-lg-4 text-lg-left">Hak Cipta Oleh © <br> AgenLantas</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                     </div>
                 </div>

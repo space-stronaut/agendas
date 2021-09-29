@@ -105,7 +105,7 @@
 </form> --}}
 
 
-@error('nip')
+@error('nrp')
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <strong>Tambah Pegawai Gagal : </strong>{{ $message }}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -128,10 +128,9 @@
           <tr>
             <th scope="col" class="atasbro">Id</th>
             <th scope="col" class="atasbro">Nama</th>
-            <th scope="col" class="atasbro">NIP</th>
-            <th scope="col" class="atasbro">Bidang</th>
+            <th scope="col" class="atasbro">NRP</th>
             <th scope="col" class="atasbro">Jabatan</th>
-            <th scope="col" class="atasbro">Golongan</th>
+            <th scope="col" class="atasbro">Pangkat</th>
             @auth
             <th scope="col" class="atasbro">Aksi</th>
             @endauth
@@ -142,10 +141,9 @@
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $worker->nama }}</td>
-            <td>{{ $worker->nip }}</td>
-            <td><b>{{ $worker->bidang }}</b></td>
+            <td>{{ $worker->nrp }}</td>
             <td>{{ $worker->jabatan }}</td>
-            <td>{{ $worker->golongan }}</td>
+            <td>{{ $worker->pangkat }}</td>
           @auth
           <td>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal{{ $worker->id }}">
@@ -175,25 +173,32 @@
                           </div>
                           </div>
                           <div class="form-group">
-                              <label for="">NIP</label>
-                          <input type="tel" maxlength="21"  id="txtnumbers"  name="nip" minlength="21" pattern="[0-9-]{21}" class="form-control" placeholder="NIP" value="{{ $worker->nip }}" required>
+                              <label for="">nrp</label>
+                          <input type="tel" name="nrp" class="form-control" placeholder="nrp" value="{{ $worker->nrp }}" required>
                             <div class="invalid-feedback">
-                              NIP Wajib Diisi Minimal Sebanyak 21 & Berisikan Angka
+                              nrp Wajib Diisi Minimal Sebanyak 21 & Berisikan Angka
                           </div>
                           </div>
                           <div class="form-group">
-                              <label for="">Bidang</label>
+                            <label for="">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email" value="{{ $worker->email }}" required>
+                          <div class="invalid-feedback">
+                            nrp Wajib Diisi Minimal Sebanyak 21 & Berisikan Angka
+                        </div>
+                        </div>
+                          <div class="form-group">
+                              <label for="">pangkat</label>
                               {{-- <input type="text" name="Nama" class="form-control" placeholder="Nama Lengkap" value="{{ old('Nama') }}" id="exampleInputPassword1"> --}}
-                              <select name="bidang" class="form-control" id="" required>
-                                  <option disabled selected value>Pilih Bidang</option>
-                                  <option value="Sekretariat" {{ $worker->bidang ==  "Sekretariat"  ? 'selected' : '' }}>Sekretariat</option>
-                                  <option value="Pengelolaan Barang Milik Daerah" {{ $worker->bidang ==  "Pengelolaan Barang Milik Daerah"  ? 'selected' : '' }}>Pengelolaan Barang Milik Daerah</option>  
-                                  <option value="Perbendaharaan" {{ $worker->bidang ==  "Perbendaharaan"  ? 'selected' : '' }}>Perbendaharaan</option>  
-                                  <option value="Akuntansi dan pelaporan" {{ $worker->bidang ==  "Akuntansi dan pelaporan"  ? 'selected' : '' }}>Akuntansi dan pelaporan</option>  
-                                  <option value="Anggaran" {{ $worker->bidang ==  "Anggaran"  ? 'selected' : '' }}>Anggaran</option>  
+                              <select name="pangkat" class="form-control" id="" required>
+                                  <option disabled selected value>Pilih pangkat</option>
+                                  <option value="Sekretariat" {{ $worker->pangkat ==  "Sekretariat"  ? 'selected' : '' }}>Sekretariat</option>
+                                  <option value="Pengelolaan Barang Milik Daerah" {{ $worker->pangkat ==  "Pengelolaan Barang Milik Daerah"  ? 'selected' : '' }}>Pengelolaan Barang Milik Daerah</option>  
+                                  <option value="Perbendaharaan" {{ $worker->pangkat ==  "Perbendaharaan"  ? 'selected' : '' }}>Perbendaharaan</option>  
+                                  <option value="Akuntansi dan pelaporan" {{ $worker->pangkat ==  "Akuntansi dan pelaporan"  ? 'selected' : '' }}>Akuntansi dan pelaporan</option>  
+                                  <option value="Anggaran" {{ $worker->pangkat ==  "Anggaran"  ? 'selected' : '' }}>Anggaran</option>  
                               </select>
                               <div class="invalid-feedback">
-                                  Bidang Wajib Diisi
+                                  pangkat Wajib Diisi
                               </div>
                             </div>
                           <div class="form-group">
@@ -202,27 +207,6 @@
                             <div class="invalid-feedback">
                               Jabatan Wajib Diisi
                           </div>
-                          </div>
-                          <div class="form-group">
-                              <label for="golongan"> 
-                                  Golongan   
-                              </label>
-                              <select name="golongan" class="form-control" id="" required>
-                                  <option value="" disabled selected>Pilih Golongan</option>
-                                  <option value="II A" {{ $worker->golongan ==  "II A"  ? 'selected' : '' }}>II A</option>
-                                  <option value="II B" {{ $worker->gologan ==  "II B"  ? 'selected' : '' }}>II B</option>
-                                  <option value="II C" {{ $worker->golongan ==  "II C"  ? 'selected' : '' }}>II C</option>
-                                  <option value="III A" {{ $worker->golongan ==  "III A"  ? 'selected' : '' }}>III A</option>
-                                  <option value="III B" {{ $worker->golongan ==  "III B"  ? 'selected' : '' }}>III B</option>
-                                  <option value="III C" {{ $worker->golongan ==  "III C"  ? 'selected' : '' }}>III C</option>
-                                  <option value="III D" {{ $worker->golongan ==  "III D"  ? 'selected' : '' }}>III D</option>
-                                  <option value="IV A" {{ $worker->golongan ==  "IV A"  ? 'selected' : '' }}>IV A</option>
-                                  <option value="IV B" {{ $worker->golongan ==  "IV B"  ? 'selected' : '' }}>IV B</option>
-                                  <option value="IV C" {{ $worker->golongan ==  "IV C"  ? 'selected' : '' }}>IV C</option>
-                              </select>
-                              <div class="invalid-feedback">
-                                  Golongan Wajib Diisi
-                              </div>
                           </div>
                           <button type="submit" class="btn btn-primary">Simpan</button>
                       </form>

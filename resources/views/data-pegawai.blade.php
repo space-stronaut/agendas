@@ -79,10 +79,9 @@
                   <tr>
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
-                    <th scope="col" >NIP</th>
-                    <th scope="col" >Bidang</th>
+                    <th scope="col" >nrp</th>
                     <th scope="col">Jabatan</th>
-                    <th scope="col">Golongan</th>
+                    <th scope="col">pangkat</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -90,10 +89,9 @@
                   <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $worker->nama }}</td>
-                    <td>{{ $worker->nip }}</td>
-                    <td><b>{{ $worker->bidang }}</b></td>
+                    <td>{{ $worker->nrp }}</td>
                     <td>{{ $worker->jabatan }}</td>
-                    <td>{{ $worker->golongan }}</td>
+                    <td>{{ $worker->pangkat }}</td>
                   </tr>
                   @endforeach
                 </tbody>

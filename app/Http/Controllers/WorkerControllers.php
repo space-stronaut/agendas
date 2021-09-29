@@ -23,7 +23,7 @@ class WorkerControllers extends Controller
      */
     public function index()
     {
-        $workers = Worker::orderBy('golongan', 'desc')->paginate(5000);
+        $workers = Worker::orderBy('pangkat', 'desc')->paginate(5000);
         return view('data', compact('workers'));
     }
 
@@ -48,26 +48,25 @@ class WorkerControllers extends Controller
 
         $validated = $request->validate([
             'nama' => 'required|max:255',
-            'nip' => 'required|unique:workers|max:21|min:21',
-            'jabatan'=> 'required|max:255',
-            'golongan' => 'required|max:255',
-            'bidang' => 'required'
+            'nrp' => 'required|unique:workers',
+            'pangkat'=> 'required|max:255',
+            'jabatan' => 'required|max:255',
+            'email' => 'required'
         ],[
             'nama.required'          => 'Nama wajib diisi.',
-            'nip.required'      => 'NIP Wajib diisi.',
-            'nip.min'           => 'NIP minimal diisi dengan 21 karakter.',
-            'jabatan.required'         => 'Jabatan Wajib diisi.',
-            'golongan.required'            => 'Golongan Wajib Diisi.',
-            'nip.unique'           => 'NIP sudah terdaftar.',
-            'bidang.required' => 'Bidang Wajib Diisi.'
+            'nrp.required'      => 'nrp Wajib diisi.',
+            'nrp.min'           => 'nrp minimal diisi dengan 21 karakter.',
+            'pangkat.required'         => 'pangkat Wajib diisi.',
+            'jabatan.required'            => 'jabatan Wajib Diisi.',
+            'nrp.unique'           => 'nrp sudah terdaftar.',
         ]);
 
         $workers = Worker::create([
             'nama' => $request->nama,
-            'nip' => $request->nip,
+            'nrp' => $request->nrp,
+            'pangkat' => $request->pangkat,
             'jabatan' => $request->jabatan,
-            'golongan' => $request->golongan,
-            'bidang' => $request->bidang
+            'email' => $request->email
         ]);
 
         Alert::success('Data Pegawai Berhasil Dibuat');
@@ -107,27 +106,26 @@ class WorkerControllers extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required|max:255',
-            'nip' => 'required|max:21|min:21',
-            'jabatan'=> 'required|max:255',
-            'golongan' => 'required|max:255',
-            'bidang' => 'required'
+            'nrp' => 'required',
+            'pangkat'=> 'required|max:255',
+            'jabatan' => 'required|max:255',
+            'email' => 'required'
         ],[
             'nama.required'          => 'Nama wajib diisi.',
-            'nip.required'      => 'NIP Wajib diisi.',
-            'nip.min'           => 'NIP minimal diisi dengan 21 karakter.',
-            'jabatan.required'         => 'Jabatan Wajib diisi.',
-            'golongan.required'            => 'Golongan Wajib Diisi.',
-            'nip.unique'           => 'NIP sudah terdaftar.',
-            'bidang.required' => 'Bidang Wajib Diisi'
+            'nrp.required'      => 'nrp Wajib diisi.',
+            'nrp.min'           => 'nrp minimal diisi dengan 21 karakter.',
+            'pangkat.required'         => 'pangkat Wajib diisi.',
+            'jabatan.required'            => 'jabatan Wajib Diisi.',
+            'nrp.unique'           => 'nrp sudah terdaftar.',
         ]);
 
 
         $workers = Worker::find($id)->update([
             'nama' => $request->nama,
-            'nip' => $request->nip,
+            'nrp' => $request->nrp,
+            'pangkat' => $request->pangkat,
             'jabatan' => $request->jabatan,
-            'golongan' => $request->golongan,
-            'bidang' => $request->bidang
+            'email' => $request->email
         ]);
 
         Alert::success('Data Pegawai Berhasil Diganti');
